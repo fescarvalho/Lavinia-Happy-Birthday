@@ -1,0 +1,284 @@
+:root {
+  --blue: #0A1BC9;
+  --red: #EB4846;
+  --black: #111;
+  --bg-color: #F8EED9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  max-width: 500px; /* constraining width for poster feel */
+  background-color: var(--bg-color);
+  background-image: url('./foto.jpeg');
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Main title area */
+.main-title {
+  margin-top: 25vh; /* Pushed down to align with middle area in reference */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lala-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: -15px;
+  margin-left: -50px;
+}
+
+.lala {
+  font-family: 'Caveat', cursive;
+  font-size: 5.5rem;
+  color: var(--black);
+  line-height: 0.8;
+  transform: rotate(-4deg);
+}
+
+.faz {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: var(--black);
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.vinte-anos {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  margin-left: 20px;
+}
+
+.vinte {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 7.5rem;
+  color: var(--blue);
+  line-height: 0.8;
+  letter-spacing: -2px;
+}
+
+.anos {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+/* cerveja amor & eu */
+.cerveja-amor {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--red);
+  line-height: 1.1;
+  text-align: left;
+  align-self: center;
+  margin-left: 120px;
+  margin-top: 10px;
+}
+
+/* Date and Time block */
+.date-time-container {
+  margin-top: 20px;
+  margin-left: 5%;
+  position: relative;
+  background: rgba(248, 238, 217, 0.85); /* cream color */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 15px 25px;
+  border-radius: 20px;
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  animation: float 4s ease-in-out infinite;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 3.8rem;
+  color: var(--blue);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.time-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 10px;
+}
+
+.as {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  color: var(--black);
+}
+
+.time {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--blue);
+  line-height: 1;
+}
+
+/* Yellow triangulo decorations matching the original */
+.yellow-triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #FFD600;
+  transform: rotate(30deg);
+  animation: spinSlow 8s linear infinite;
+}
+
+.t1 { 
+  margin-top: -30px; 
+  animation: spinSlow 6s linear infinite reverse;
+}
+.t2 { 
+  margin-left: 10px; 
+  animation: spinSlow 10s linear infinite;
+}
+
+/* Location */
+.location {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 5px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  color: var(--black);
+  text-decoration: none;
+  margin-top: 15px;
+  line-height: 1.2;
+  transition: opacity 0.2s;
+}
+.location:hover {
+  opacity: 0.7;
+}
+
+.pin {
+  color: #D32F2F;
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
+/* Bottom texts */
+.bottom-texts {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: rgba(248, 238, 217, 0.85);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+.anxious {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  color: var(--black);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.no-invite {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black);
+  letter-spacing: 0.5px;
+  background: #FFD600;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* Botão WhatsApp */
+#whatsapp-btn {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+  animation: pulseButton 2s infinite;
+}
+
+#whatsapp-btn:hover {
+  transform: scale(1.05);
+  animation: none;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseButton {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
