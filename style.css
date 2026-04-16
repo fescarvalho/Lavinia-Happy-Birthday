@@ -1,8 +1,9 @@
 :root {
   --blue: #0A1BC9;
   --red: #EB4846;
-  --black: #111;
+  --black: #1a1a2e;
   --bg-color: #F8EED9;
+  --glass: rgba(248, 238, 217, 0.15); /* Transparência muito maior agora */
 }
 
 * {
@@ -15,75 +16,201 @@ body {
   background-color: var(--black);
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #app {
   width: 100%;
-  max-width: 500px; /* constraining width for poster feel */
+  max-width: 500px;
   background-color: var(--bg-color);
   background-image: url('./foto.jpeg');
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  perspective: 1000px;
 }
 
-.content {
-  flex: 1;
+/* Splash Screen */
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #F8EED9;
+  z-index: 9999;
   display: flex;
-  flex-direction: column;
-  padding: 20px;
-  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+#splash.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.splash-title {
+  font-family: 'Caveat', cursive;
+  font-size: 3rem;
+  color: var(--black);
+  margin-bottom: 30px;
+  animation: pulseText 1.5s ease-in-out infinite;
+}
+
+.beer-loader {
+  width: 80px;
+  height: 120px;
+  border: 4px solid var(--black);
+  border-top: none;
+  border-radius: 0 0 15px 15px;
   position: relative;
+  margin: 0 auto 20px;
+  background: rgba(0,0,0,0.05);
+  overflow: hidden;
 }
 
-/* Main title area */
-.main-title {
-  margin-top: 25vh; /* Pushed down to align with middle area in reference */
+.beer-loader:after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: -25px;
+  width: 25px;
+  height: 50px;
+  border: 4px solid var(--black);
+  border-left: none;
+  border-radius: 0 15px 15px 0;
+}
+
+.beer-fill {
+  background: #FFD600;
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  bottom: 0;
+  animation: fillBeer 2s forwards ease-in-out;
+}
+
+.beer-fill:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+  animation: foam 0.5s infinite;
+}
+
+/* Floating Bubbles */
+#bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -20px;
+  background: rgba(255, 214, 0, 0.4);
+  border-radius: 50%;
+  animation: rise 5s infinite ease-in;
+}
+
+/* Glass Card Container */
+.glass-card {
+  width: 100%;
+  background: var(--glass);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 32px;
+  padding: 40px 25px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: cardEntrance 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67) 2.5s both;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect on card */
+.glass-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: shine 6s infinite;
+}
+
+/* Header */
+.header-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0px;
 }
 
-.lala-group {
+.lala-title {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   gap: 15px;
-  margin-bottom: -15px;
-  margin-left: -50px;
 }
 
 .lala {
   font-family: 'Caveat', cursive;
-  font-size: 5.5rem;
+  font-size: 5rem;
   color: var(--black);
   line-height: 0.8;
-  transform: rotate(-4deg);
+  transform: rotate(-3deg);
 }
 
 .faz {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   color: var(--black);
-  margin-bottom: 5px;
-  letter-spacing: 1px;
+  font-weight: 600;
 }
 
-.vinte-anos {
+.age-title {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 15px;
-  margin-left: 20px;
+  margin-top: 10px;
 }
 
 .vinte {
   font-family: 'Playfair Display', serif;
   font-weight: 900;
-  font-size: 7.5rem;
+  font-size: 6rem;
   color: var(--blue);
   line-height: 0.8;
   letter-spacing: -2px;
@@ -92,184 +219,149 @@ body {
 .anos {
   font-family: 'Oswald', sans-serif;
   font-size: 3.5rem;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--black);
   line-height: 1;
-  letter-spacing: 1px;
 }
 
-/* cerveja amor & eu */
-.cerveja-amor {
+.theme-text {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   color: var(--red);
-  line-height: 1.1;
-  text-align: left;
-  align-self: center;
-  margin-left: 120px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
-.invite-msg {
+/* Divider */
+.divider {
+  width: 60px;
+  height: 4px;
+  background-color: var(--blue);
+  margin: 5px auto;
+  border-radius: 5px;
+}
+
+/* Welcome Message */
+.welcome-msg {
   font-family: 'Oswald', sans-serif;
   font-size: 1.1rem;
   color: var(--black);
-  line-height: 1.3;
-  text-align: left;
-  max-width: 280px;
-  margin-top: 25px;
-  margin-left: 10%;
-  animation: fadeUp 1s ease-out;
+  line-height: 1.4;
+  padding: 0 10px;
 }
 
-/* Date and Time block */
-.date-time-container {
-  margin-top: 20px;
-  margin-left: 5%;
-  position: relative;
-  background: rgba(248, 238, 217, 0.85); /* cream color */
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  padding: 15px 25px;
-  border-radius: 20px;
-  display: inline-flex;
+/* Info Section (Date, Location) */
+.info-section {
+  display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  animation: float 4s ease-in-out infinite;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.date-row {
+.datetime-box {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--blue);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
-.date {
-  font-family: 'Playfair Display', serif;
+.datetime-box strong {
   font-weight: 900;
-  font-size: 3.8rem;
-  color: var(--blue);
-  letter-spacing: -1px;
-  line-height: 1;
+  font-size: 2.2rem;
 }
 
-.time-row {
+.location-box {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-left: 10px;
-}
-
-.as {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.4rem;
-  color: var(--black);
-}
-
-.time {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 2.5rem;
-  color: var(--blue);
-  line-height: 1;
-}
-
-/* Yellow triangulo decorations matching the original */
-.yellow-triangle {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 20px solid #FFD600;
-  transform: rotate(30deg);
-  animation: spinSlow 8s linear infinite;
-}
-
-.t1 { 
-  margin-top: -30px; 
-  animation: spinSlow 6s linear infinite reverse;
-}
-.t2 { 
-  margin-left: 10px; 
-  animation: spinSlow 10s linear infinite;
-}
-
-/* Location */
-.location {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 5px;
+  justify-content: center;
+  gap: 10px;
   font-family: 'Oswald', sans-serif;
   font-size: 1.2rem;
   color: var(--black);
   text-decoration: none;
-  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.location-box:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.02);
+}
+
+.loc-text {
+  text-align: left;
   line-height: 1.2;
-  transition: opacity 0.2s;
-}
-.location:hover {
-  opacity: 0.7;
 }
 
-.pin {
-  color: #D32F2F;
-  font-size: 1rem;
-  margin-top: 2px;
+.loc-text strong {
+  font-weight: 600;
 }
 
-/* Bottom texts */
-.bottom-texts {
-  margin-top: auto;
+.loc-text small {
+  font-size: 0.85rem;
+  color: #666;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Footer Section */
+.footer-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  margin-bottom: 20px;
-  text-align: center;
-  background: rgba(248, 238, 217, 0.85);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  padding: 15px 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  animation: float 5s ease-in-out infinite 1s;
+  margin-top: 5px;
 }
 
-.anxious {
+.anxious-text {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--black);
   line-height: 1.2;
-  letter-spacing: 0.5px;
+}
+
+.highlight-wrapper {
+  background: #FFD600;
+  padding: 8px 15px;
+  border-radius: 6px;
+  transform: rotate(-1deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .no-invite {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--black);
-  letter-spacing: 0.5px;
-  background: #FFD600;
-  padding: 5px 10px;
-  border-radius: 4px;
 }
 
-/* Botão WhatsApp */
+/* Button */
 #whatsapp-btn {
   background-color: #25D366;
   color: white;
   border: none;
-  border-radius: 30px;
-  padding: 12px 25px;
+  border-radius: 50px;
+  padding: 16px 30px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
   cursor: pointer;
-  margin: 0 auto 20px auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
   transition: transform 0.2s;
   animation: pulseButton 2s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5px;
 }
 
 #whatsapp-btn:hover {
@@ -278,15 +370,32 @@ body {
 }
 
 /* Animations */
-@keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(1deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+@keyframes fillBeer {
+  0% { height: 0%; }
+  100% { height: 85%; }
 }
 
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes pulseText {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  20% { opacity: 0.5; }
+  80% { opacity: 0.5; }
+  100% { transform: translateY(-105vh) scale(0.5); opacity: 0; }
+}
+
+@keyframes cardEntrance {
+  0% { opacity: 0; transform: translateY(50px) rotateX(20deg) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0deg) scale(1); }
+}
+
+@keyframes shine {
+  0% { left: -150%; }
+  20% { left: 150%; }
+  100% { left: 150%; }
 }
 
 @keyframes pulseButton {

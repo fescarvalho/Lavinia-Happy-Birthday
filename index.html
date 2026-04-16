@@ -1,68 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Convite Lalá faz 20 anos</title>
-    <!-- Importing exact fonts from the design -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:wght@700;900&family=Oswald:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <div id="app">
-      <div class="content">
-        <!-- Título Principal -->
-        <div class="main-title">
-          <div class="lala-group">
-            <span class="lala">Lalá</span>
-            <span class="faz">faz</span>
-          </div>
-          <div class="vinte-anos">
-            <span class="vinte">20</span>
-            <span class="anos">ANOS</span>
-          </div>
-        </div>
 
-        <!-- Cerveja amor & eu -->
-        <div class="cerveja-amor">
-          cerveja<br>amor<br>& eu
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convite Lalá faz 20 anos</title>
+  <!-- Importing exact fonts from the design -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:wght@700;900&family=Oswald:wght@400;600&family=Montserrat:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
 
-        <div class="invite-msg">
-          <p>ME RODEAR DE PESSOAS QUE AMO, ME FAZ LEMBRAR QUE ESTOU VIVA. POR ISSO CONVIDO VOCÊ PARA COMEMORAR COMIGO MEU ANIVERSÁRIO!</p>
-        </div>
+<body>
+  <!-- Tela de Abertura (Splash Screen) -->
+  <div id="splash">
+    <div class="loader-content">
+      <h1 class="splash-title">O convite chegou...</h1>
+      <div class="beer-loader">
+        <div class="beer-fill"></div>
+      </div>
+      <p class="splash-subtitle">Preparando a gelada! 🍻</p>
+    </div>
+  </div>
 
-        <!-- Data, Hora e Local -->
-        <div class="date-time-container">
-          <div class="date-row">
-            <div class="yellow-triangle t1"></div>
-            <span class="date">20/05</span>
+  <!-- Bolha de cerveja no fundo -->
+  <div id="bubbles"></div>
+
+  <div id="app">
+
+    <!-- Cartão central de vidro que organiza todas as infos de forma limpa -->
+    <div class="glass-card">
+
+      <!-- Header: Títulos da Festa -->
+      <header class="header-section">
+        <h1 class="lala-title"><span class="lala">Lalá</span> <span class="faz">faz</span></h1>
+        <h2 class="age-title"><span class="vinte">20</span> <span class="anos">ANOS</span></h2>
+        <p class="theme-text">cerveja, amor & eu</p>
+      </header>
+
+      <div class="divider"></div>
+
+      <!-- Mensagem Especial -->
+      <p class="welcome-msg">
+        ME RODEAR DE PESSOAS QUE AMO, ME FAZ LEMBRAR QUE ESTOU VIVA. POR ISSO CONVIDO VOCÊ PARA COMEMORAR COMIGO MEU
+        ANIVERSÁRIO!
+      </p>
+
+      <!-- Seção de Infos Cruciais: Data, Hora e Localização organizados juntos -->
+      <section class="info-section">
+        <div class="datetime-box">
+          <span class="icon">📅</span>
+          <strong>20/05</strong> às <strong>13:30</strong>
+        </div>
+        <a href="https://maps.app.goo.gl/v6b7EZW6jNsjp2zc8"
+          target="_blank" class="location-box">
+          <span class="icon pin">📍</span>
+          <div class="loc-text">
+            <strong>CLUBE ESPORTIVO BALNEÁRIO</strong><br>
+            <small>(Clique para abrir no Maps)</small>
           </div>
-          <div class="time-row">
-            <span class="as">às</span>
-            <span class="time">13:30</span>
-            <div class="yellow-triangle t2"></div>
-          </div>
-          <a href="https://maps.google.com/?q=Av.+Mauro+Alves+Ribeiro+J%C3%BAnior,+810+-+Nossa+Sra.+Lourdes,+Natividade+-+RJ,+28380-000" target="_blank" class="location">
-            <span class="pin">📍</span> 
-            <div>CLUBE ESPORTIVO<br>BALNEÁRIO</div>
-          </a>
-        </div>
+        </a>
+      </section>
 
-        <!-- Textos Finais -->
-        <div class="bottom-texts">
-          <p class="anxious">CONFIRME SUA PRESENÇA<br>PORQUE ELA É ANSIOSA</p>
+      <!-- Avisos Finais e WhatsApp -->
+      <footer class="footer-section">
+        <p class="anxious-text">CONFIRME SUA PRESENÇA<br>PORQUE ELA É ANSIOSA</p>
+
+        <div class="highlight-wrapper">
           <p class="no-invite">CONVIDADO NÃO CONVIDA, HEIN!</p>
         </div>
 
-        <!-- Botão WhatsApp -->
         <button id="whatsapp-btn">
-          Confirmar Presença (WhatsApp)
+          Confirmar Presença
         </button>
-      </div>
+      </footer>
+
     </div>
-    <script type="module" src="./main.js"></script>
-  </body>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+
 </html>
