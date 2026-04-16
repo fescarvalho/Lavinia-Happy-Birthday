@@ -12,68 +12,76 @@
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:wght@700;900&family=Oswald:wght@400;600&family=Montserrat:wght@400;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 
 <body>
   <!-- Tela de Abertura (Splash Screen) -->
   <div id="splash">
     <div class="loader-content">
-      <h1 class="splash-title">O convite chegou...</h1>
+      <h1 class="splash-title">O convite especial chegou...</h1>
       <div class="beer-loader">
         <div class="beer-fill"></div>
       </div>
-      <p class="splash-subtitle">Preparando a gelada! 🍻</p>
+      <p class="splash-subtitle">Preparando a comemoração! 🍻</p>
     </div>
   </div>
 
-  <!-- Bolha de cerveja no fundo -->
-  <div id="bubbles"></div>
+  <!-- Partículas de celebração no fundo -->
+  <div id="particles"></div>
 
   <div id="app">
-
-    <!-- Cartão central de vidro que organiza todas as infos de forma limpa -->
-    <div class="glass-card">
-
-      <!-- Header: Títulos da Festa -->
+    <!-- Cartão central de vidro com efeito Tilt -->
+    <div class="glass-card" id="main-card">
+      
+      <!-- Header: Títulos com classes para GSAP -->
       <header class="header-section">
-        <h1 class="lala-title"><span class="lala">Lalá</span> <span class="faz">faz</span></h1>
-        <h2 class="age-title"><span class="vinte">20</span> <span class="anos">ANOS</span></h2>
-        <p class="theme-text">cerveja, amor & eu</p>
+        <h1 class="lala-title main-anim">
+          <span class="lala">Lalá</span> 
+          <span class="faz">faz</span>
+        </h1>
+        <h2 class="age-title main-anim">
+          <span class="vinte">20</span> 
+          <span class="anos">ANOS</span>
+        </h2>
+        <p class="theme-text main-anim">cerveja, amor & eu</p>
       </header>
 
-      <div class="divider"></div>
+      <div class="divider main-anim"></div>
 
       <!-- Mensagem Especial -->
-      <p class="welcome-msg">
-        ME RODEAR DE PESSOAS QUE AMO, ME FAZ LEMBRAR QUE ESTOU VIVA. POR ISSO CONVIDO VOCÊ PARA COMEMORAR COMIGO MEU
-        ANIVERSÁRIO!
+      <p class="welcome-msg main-anim">
+        ME RODEAR DE PESSOAS QUE AMO, ME FAZ LEMBRAR QUE ESTOU VIVA. <br>
+        <strong>POR ISSO CONVIDO VOCÊ PARA COMEMORAR COMIGO!</strong>
       </p>
 
-      <!-- Seção de Infos Cruciais: Data, Hora e Localização organizados juntos -->
-      <section class="info-section">
+      <!-- Seção de Infos -->
+      <section class="info-section main-anim">
         <div class="datetime-box">
           <span class="icon">📅</span>
-          <strong>16/05</strong> às <strong>13:30h</strong>
+          <div class="date-text">
+            <strong>16/MAIO</strong> às <strong>13:30h</strong>
+          </div>
         </div>
         <a href="https://maps.app.goo.gl/v6b7EZW6jNsjp2zc8" target="_blank" class="location-box">
           <span class="icon pin">📍</span>
           <div class="loc-text">
-            <strong>CLUBE LÍTERO ESPORTIVO BALNEÁRIO</strong><br>
-            <small>(Clique para abrir no Maps)</small>
+            <strong>CLUBE LÍTERO BALNEÁRIO</strong><br>
+            <small>Clique para abrir no Maps </small>
           </div>
         </a>
       </section>
 
-      <!-- Avisos Finais e WhatsApp -->
-      <footer class="footer-section">
-        <p class="anxious-text">CONFIRME SUA PRESENÇA<br>PORQUE ELA É ANSIOSA</p>
+      <!-- Footer e Botão -->
+      <footer class="footer-section main-anim">
+        <p class="anxious-text">CONFIRME SUA PRESENÇA<br><small>ELA É ANSIOSA, JÁ SABE!</small></p>
 
         <div class="highlight-wrapper">
-          <p class="no-invite">CONVIDADO NÃO CONVIDA, HEIN!</p>
+          <p class="no-invite">CONVIDADO NÃO CONVIDA! 🚫</p>
         </div>
 
-        <button id="whatsapp-btn">
-          Confirmar Presença
+        <button id="whatsapp-btn" class="cta-button">
+          Garanti meu lugar! 🍻
         </button>
       </footer>
 
