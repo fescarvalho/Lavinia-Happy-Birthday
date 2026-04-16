@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   whatsappBtn.addEventListener('click', () => {
     // ATENÇÃO: Substitua o número abaixo pelo número real do WhatsApp (apenas números, com código do país e DDD)
     // Exemplo: 5511999999999 (55 = Brasil, 11 = DDD, 999999999 = Número)
-    const phoneNumber = "5599999999999"; 
+    const phoneNumber = "5522998471977"; 
     
     // Mensagem pré-pronta
     const message = "Oie! Estou confirmando minha presença no aniversário da Lala (e também a minha paz de espírito, rs)! 🎉🍻";
